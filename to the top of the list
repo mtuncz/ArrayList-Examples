@@ -1,0 +1,30 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+/* 
+1. Create a list of strings in the main method.
+2. Add 10 strings to it from the keyboard, but only add them to the beginning of the list, not the end.
+3. Use a loop to display the contents, each value on a new line.
+
+*/
+
+public class Solution {
+    public static void main(String[] args) throws Exception {
+        //write your code here
+        ArrayList <String> list = new ArrayList<String>(); 
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); 
+        for(int i = 0; i < 10; i++){
+            if(i == 0){
+                list.add(reader.readLine());
+            } 
+            else {
+                list.add(0, reader.readLine());
+            }
+        }
+        
+        for(int i = 0; i < list.size(); i++){
+            System.out.println(list.get(i));
+        }
+    }
+}
