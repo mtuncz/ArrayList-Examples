@@ -1,0 +1,56 @@
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.*;
+
+/* 
+1. Create a list of strings.
+2. Add 10 strings from the keyboard.
+3. Find out which string occurs earlier in the list: the shortest or the longest.
+If several strings are shortest or longest, then consider the very first such string encountered.
+4. Display the string described in Step 3. One string should be displayed.
+
+*/
+
+public class Solution {
+    public static void main(String[] args) throws Exception {
+        //write your code here
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); 
+        ArrayList<String> list = new ArrayList<String>(); 
+        int [] lengths = new int[10]; 
+        for(int i = 0; i < 10; i++){
+            list.add(reader.readLine());
+            lengths[i] = list.get(i).length(); 
+        }
+    
+        int [] sortedArray = new int[lengths.length]; 
+        for(int i = 0; i < lengths.length; i++){
+            sortedArray[i] = lengths[i];
+        }
+        
+        Arrays.sort(sortedArray);
+        
+        int minLength = sortedArray[0];
+        int maxLength = sortedArray[sortedArray.length - 1]; 
+        
+        ArrayList<Integer> intList = new ArrayList<Integer>(); 
+        for(int i = 0; i < lengths.length; i++){
+            intList.add(lengths[i]);
+        }
+        
+        int indexOfMin = intList.indexOf(minLength);
+        int indexOfMax = intList.indexOf(maxLength);
+        
+        if(indexOfMin < indexOfMax){
+            System.out.println(list.get(indexOfMin));
+        } else {
+            System.out.println(list.get(indexOfMax));
+        }
+        
+        
+        
+        
+    }
+}
