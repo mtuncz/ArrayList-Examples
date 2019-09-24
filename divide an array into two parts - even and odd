@@ -1,0 +1,26 @@
+public class Organizing{
+  public static void main(String [] args) throws IOException{
+    int [] data = {1, 5, 8, 19, 4, 68, 79}; // static initializatin of data
+    
+    ArrayList<Integer> list = new ArrayList<Integer>(); 
+    
+    // use the array to fill the list 
+    for(int i = 0 ; i < data.length; i++){
+      list.add(data[i]);
+    }
+    ArrayList<Integer> even = new ArrayList<Integer>(); // list for even numbers
+    ArrayList<Integer> odd = new ArrayList<Integer>(); // list for odd numbers 
+    
+    for(int i = 0 ; i < list.size(); i ++){
+      Integer x = list.get(i); 
+      if(x % 2 == 0){
+        even.add(x); // adding x to the even list
+      }
+      else {
+        odd.add(x); // adding x to the odd list
+      }
+    }
+    
+  }
+
+}
