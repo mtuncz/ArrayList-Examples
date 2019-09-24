@@ -1,0 +1,22 @@
+public class MyClass{
+  public static void main(String [] args) throws IOException{
+    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); 
+    ArrayList <Integer> list = new ArrayList<Integer>(); 
+    
+    list.add(1);
+    list.add(7);
+    list.add(19); 
+    list.add(3);
+    list.add(67); 
+    
+    for(int i = 0; i < list.size(); ){ // we moved the increment inside
+      if(list.get(i) > 5){
+        list.remove(i); // we dont increase i if we deleted the current element
+      }
+      else {
+        i++;
+      }
+    }
+
+  }
+}
