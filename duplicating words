@@ -1,0 +1,43 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+/* 
+1. Read 10 words from the keyboard and add them to a list of strings.
+2. The doubleValues method should duplicate words like this:
+alpha, beta, gamma, -> alpha, alpha, beta, beta, gamma, gamma.
+
+3. Display the result, each value on a new line.
+
+*/
+
+public class Solution {
+	public static void main(String[] args) throws Exception {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); 
+		ArrayList<String> list = new ArrayList<String>(); 
+		
+		for(int i = 0 ; i < 10; i++){
+			list.add(reader.readLine());
+		}
+	
+		ArrayList<String> result = doubleValues(list); 
+		
+		for(String s : result){
+			System.out.println(s);
+		}
+	
+	}
+	
+	public static ArrayList<String> doubleValues (ArrayList<String> list) {
+		ArrayList<String> copy = new ArrayList<String>(list); 
+		
+		for(int i = 0; i < copy.size(); i++){
+			String currString = copy.get(i); 
+			int indexOfTheCurrString = list.indexOf(currString); 
+			int indexToAdd = indexOfTheCurrString + 1; 
+			list.add(indexToAdd, currString); 
+		}
+		
+		return list;
+	}
+}
