@@ -1,0 +1,35 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+/* 
+1. Read 10 words from the keyboard and add them to a list of strings.
+2. Determine whether the list is ordered by increasing string length.
+3. If it is not, then display the index of the first element that violates this order.
+
+*/
+
+public class Solution {
+	public static void main(String[] args) throws Exception{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); 
+		ArrayList<String> list = new ArrayList<String>(); 
+		
+		for(int i = 0; i < 10; i++){
+			list.add(reader.readLine());
+		}
+		
+		int [] lengths = new int[list.size()]; 
+		for(int i = 0; i < lengths.length; i++){
+			lengths[i] = list.get(i).length();
+		}
+	
+		for(int i = 0; i < lengths.length - 1; i++){
+			if(lengths[i+1] < lengths[i]){
+				System.out.println(i+1); 
+				break;
+			}
+		}
+	}
+
+}
