@@ -1,0 +1,81 @@
+import java.util.*;
+
+/* 
+Create the Human class with String name, boolean sex, int age, Human father, and Human mother fields. Create and populate objects so that we end up with: Two grandfathers, two grandmothers, one father, one mother, and three children. Display the objects on the screen.
+
+Note:
+If you write your own String toString() method in the Human class, then it will be used to display the object on the screen.
+
+*/
+
+public class Solution {
+    public static void main(String[] args) {
+        // write your code here
+        ArrayList<Human> humans = new ArrayList<Human>();
+        Human grandfather1 = new Human("Grandfather 1", true, 70); 
+        humans.add(grandfather1);
+        Human grandfather2 = new Human("Grandfather 2", true, 82);
+        humans.add(grandfather2);
+        Human grandmother1 = new Human("Grandmother 1", false, 68);
+        humans.add(grandmother1);
+        Human grandmother2 = new Human("Grandmother 2" , false, 80);
+        humans.add(grandmother2);
+        Human father = new Human("Father", true, 45, grandfather1, grandmother1);
+        humans.add(father);
+        Human mother = new Human("Mother", false, 45, grandfather2, grandmother2); 
+        humans.add(mother);
+        Human children1 = new Human("Children 1", true, 18, father, mother);
+        humans.add(children1);
+        Human children2 = new Human("Children 2", false, 20, father, mother); 
+        humans.add(children2);
+        Human children3 = new Human("Children 3", true, 22, father, mother); 
+        humans.add(children3);
+        
+        for(Human curr : humans){
+            System.out.println(curr);
+        }
+        
+        
+        
+    }
+
+    public static class Human {
+        // write your code here
+        String name;
+        boolean sex; 
+        int age; 
+        Human father; 
+        Human mother; 
+        
+        public Human(String name, boolean sex, int age){
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+            
+        }
+        
+        public Human(String name, boolean sex, int age, Human father, Human mother){
+            this.name = name;
+            this.age = age; 
+            this.sex = sex; 
+            this.father = father; 
+            this.mother = mother;
+        }
+        
+
+        public String toString() {
+            String text = "";
+            text += "Name: " + this.name;
+            text += ", sex: " + (this.sex ? "male" : "female");
+            text += ", age: " + this.age;
+
+            if (this.father != null)
+                text += ", father: " + this.father.name;
+
+            if (this.mother != null)
+                text += ", mother: " + this.mother.name;
+
+            return text;
+        }
+    }
+}
