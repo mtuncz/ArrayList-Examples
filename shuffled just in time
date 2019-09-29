@@ -1,0 +1,35 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
+/* 
+Use the keyboard to enter 2 numbers N and M.
+Enter N strings and put them in a list.
+Move the first M strings to the end of the list.
+Display the list, each value on a new line.
+
+*/
+
+public class Solution {
+	public static void main(String [] args) throws IOException{
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); 
+		int n = Integer.parseInt(reader.readLine()); 
+		int m = Integer.parseInt(reader.readLine());
+		
+		ArrayList<String> list = new ArrayList<String>(); 
+		for(int i = 0; i < n; i++){
+			list.add(reader.readLine());
+		}
+	
+		for(int i = 0; i < m; i++){
+			String curr = list.get(i); 
+			list.remove(0); 
+			list.add(curr);
+		}
+		
+		for(String s : list){
+			System.out.println(s);
+		}
+	}
+}
