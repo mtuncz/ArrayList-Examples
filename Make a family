@@ -1,0 +1,74 @@
+import java.util.*;
+
+/* 
+1. Create a Human class with String name, boolean sex, int age, and ArrayList<Human> children fields.
+2. Create and populate objects so that we end up with: two grandfathers, two grandmothers, one father, one mother, and three children.
+3. Display all the Human objects (Hint: use the Human class's toString() method).
+
+*/
+
+public class Solution {
+    public static void main(String[] args) {
+        //write your code here
+       
+        Human grandfather1 = new Human("Grandfather1", true, 86); 
+        Human grandfather2 = new Human("Grandfather2", true, 80); 
+        Human grandmother1 = new Human("Grandmother1", false, 83); 
+        Human grandmother2 = new Human("Grandmother2", false, 79); 
+        Human father = new Human("Father", true, 50); 
+        Human mother = new Human("Mother", false, 49); 
+        grandfather1.children.add(father);
+        grandmother1.children.add(father);
+        grandfather2.children.add(mother);
+        grandmother2.children.add(mother);
+        Human child1 = new Human("Child1", true, 25);
+        Human child2 = new Human("Child2", false, 24);
+        Human child3 = new Human("Child3", false, 18); 
+        mother.children.add(child1);
+        mother.children.add(child2);
+        mother.children.add(child3);
+        father.children.add(child1);
+        father.children.add(child2);
+        father.children.add(child3);
+        ArrayList<Human> myList = new ArrayList<Human>(Arrays.asList(grandfather1, grandfather2, grandmother1, grandmother2, father, mother, child1, child2, child3));
+        for(Human h : myList){
+            System.out.println(h.toString());
+        }
+        
+        
+    }
+
+    public static class Human {
+        //write your code here
+        String name; 
+        boolean sex; 
+        int age; 
+        ArrayList<Human> children = new ArrayList<Human>();
+        
+        public Human(String name, boolean sex, int age){
+            this.name = name;
+            this.sex = sex;
+            this.age = age; 
+            
+        }
+
+        public String toString() {
+            String text = "";
+            text += "Name: " + this.name;
+            text += ", sex: " + (this.sex ? "male" : "female");
+            text += ", age: " + this.age;
+
+            int childCount = this.children.size();
+            if (childCount > 0) {
+                text += ", children: " + this.children.get(0).name;
+
+                for (int i = 1; i < childCount; i++) {
+                    Human child = this.children.get(i);
+                    text += ", " + child.name;
+                }
+            }
+            return text;
+        }
+    }
+
+}
