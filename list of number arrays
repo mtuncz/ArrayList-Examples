@@ -1,0 +1,34 @@
+import java.util.ArrayList;
+
+/* 
+Create a list whose elements are arrays of numbers.
+Add to the list five array objects whose lengths are 5, 2, 4, 7, and 0, respectively.
+Fill the arrays with any data and display them on the screen.
+
+*/
+
+public class Solution {
+    public static void main(String[] args) {
+        ArrayList<int[]> list = createList();
+        printList(list);
+    }
+
+    public static ArrayList<int[]> createList() {
+        //write your code here
+        ArrayList<int[]> list = new ArrayList<int[]>(); 
+        list.add(new int[]{1,2,3,4,5});
+        list.add(new int[]{4,2});
+        list.add(new int[]{7,8,15,23}); 
+        list.add(new int[]{0,8,28,69,45,75,48});
+        list.add(new int[]{});
+        return list;
+    }
+
+    public static void printList(ArrayList<int[]> list) {
+        for (int[] array : list) {
+            for (int x : array) {
+                System.out.println(x);
+            }
+        }
+    }
+}
