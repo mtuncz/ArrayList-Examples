@@ -1,0 +1,24 @@
+public class Exercise {
+    public static void main(String[] args) {
+        List<String> colors = new ArrayList<String>();
+        colors.add("Red");
+        colors.add("Green");
+        colors.add("Orange");
+        colors.add("White");
+        colors.add("Black");
+        System.out.println(colors);
+
+
+        Random rand = new Random();
+        for(int i = 0 ; i < colors.size(); i++){
+            int r = rand.nextInt(colors.size()-1);
+            String temp = colors.get(i);
+            colors.set(i, colors.get(r));
+            colors.set(r, temp);
+        }
+
+        System.out.println(colors);
+
+        
+    }
+}
