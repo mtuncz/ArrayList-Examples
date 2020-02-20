@@ -1,0 +1,23 @@
+public class Exercise {
+    public static void main(String[] args) {
+        List<String> c1 = new ArrayList<String>();
+        c1.add("Black");
+        c1.add("Blue");
+        c1.add("Berry");
+        c1.add("Bodak");
+        c1.add("Bear");
+
+        List<String> c2 = new ArrayList<String>();
+        c2.add("Kirmizi");
+        c2.add("Black");
+        c2.add("Bodak");
+        c2.add("Bear");
+
+        List<String> c3 = new ArrayList<String>();
+        for(String e : c1){
+            c3.add(c2.contains(e) ? "Yes" : "No");
+        }
+
+        System.out.println(c3);
+    }
+}
