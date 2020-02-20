@@ -1,0 +1,26 @@
+/*
+not using Collections.reverse(list), we are doing this manually
+*/ 
+
+
+public class Exercise {
+    public static void main(String[] args) {
+        List<String> colors = new ArrayList<String>();
+        colors.add("Red");
+        colors.add("Green");
+        colors.add("Orange");
+        colors.add("White");
+        colors.add("Black");
+        System.out.println(colors);
+
+        for(int i = 0 ; i < colors.size()/2; i++){
+            String temp = colors.get(i);
+            colors.set(i, colors.get(colors.size()-1-i));
+            colors.set(colors.size()-1-i, temp);
+        }
+
+        System.out.println(colors);
+
+    }
+}
+
